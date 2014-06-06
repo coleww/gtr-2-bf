@@ -133,13 +133,15 @@ function autoCorrelate( buf, sampleRate ) {
 }
 
 function updatePitch() {
+  console.log(update);
   var cycles = new Array;
   analyser.getByteTimeDomainData( buf );
 
   // possible other approach to confidence: sort the array, take the median; go through the array and compute the average deviation
   autoCorrelate( buf, audioContext.sampleRate );
-
-  canvasContext.fillStyle = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+  var fill = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+  console.log(fill)
+  canvasContext.fillStyle = fill;
   canvasContext.rect(0,0,WIDTH,HEIGHT);
 
   if (confidence <10) {
