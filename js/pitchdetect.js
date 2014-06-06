@@ -133,7 +133,7 @@ function autoCorrelate( buf, sampleRate ) {
 }
 
 function updatePitch() {
-  console.log(update);
+  console.log("update");
   var cycles = new Array;
   analyser.getByteTimeDomainData( buf );
 
