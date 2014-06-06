@@ -142,8 +142,9 @@ function updatePitch() {
   var fill = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
   console.log(fill)
   canvasContext.fillStyle = fill;
+  canvasContext.fill();
   canvasContext.rect(0,0,WIDTH,HEIGHT);
-
+  console.log(confidence, currentPitch)
   if (confidence <10) {
     noteElem.innerText = "-";
   } else {
