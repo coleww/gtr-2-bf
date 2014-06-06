@@ -140,7 +140,7 @@ function updatePitch() {
   autoCorrelate( buf, audioContext.sampleRate );
 
   canvasContext.fillStyle = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-  canvasContext.clearRect(0,0,WIDTH,HEIGHT);
+  canvasContext.rect(0,0,WIDTH,HEIGHT);
 
   if (confidence <10) {
     noteElem.innerText = "-";
