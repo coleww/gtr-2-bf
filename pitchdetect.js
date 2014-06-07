@@ -129,18 +129,22 @@ function autoCorrelate( buf, sampleRate ) {
   }
 //  var best_frequency = sampleRate/best_offset;
 }
-$brainfuck = $(".brainfuck");
+
+var $brainfuck = $(".brainfuck");
+
 function updatePitch() {
   var cycles = new Array;
   analyser.getByteTimeDomainData( buf );
 
   // possible other approach to confidence: sort the array, take the median; go through the array and compute the average deviation
   autoCorrelate( buf, audioContext.sampleRate );
-  var fill = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
 
-  canvasContext.fillStyle = fill;
-  canvasContext.fill();
-  canvasContext.rect(0,0,WIDTH,HEIGHT);
+
+
+//BLINK A THING! LOL
+
+
+
 
   if (confidence <10) {
     noteElem.innerText = "-";
@@ -154,9 +158,6 @@ function updatePitch() {
   }
 }
 
-//CLOSE BRACKETS YO!
-var lisp = false;
-//if lisp, append a ], else [
 BRAIN_FUCK_MAP = {
   "A": ">",
   "B": "<",
@@ -166,9 +167,18 @@ BRAIN_FUCK_MAP = {
   "F": "-",
   "G": ".",
   };
+
+var loop = false;
+
 function brainfuckify(note){
-  return BRAIN_FUCK_MAP[note[0]];
+  var code = BRAIN_FUCK_MAP[note[0]];
+  if(code == "["){
+    if(loop) code = "]";
+    loop = !loop;
+  }
+  return code;
 }
+
 $(function() {
   getLiveInput();
   noteElem = document.getElementById( "note" );
