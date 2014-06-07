@@ -35,12 +35,9 @@ var CENTER=150;
 var HEIGHT=42;
 var confidence = 0;
 var currentPitch = 0;
+var brainfuck = [];
 
-window.onload = function() {
-  getLiveInput();
-  noteElem = document.getElementById( "note" );
-  canvasContext = document.getElementById( "output" ).getContext("2d");
-};
+
 
 function error() {
     alert('Stream generation failed.');
@@ -131,24 +128,37 @@ function autoCorrelate( buf, sampleRate ) {
   }
 //  var best_frequency = sampleRate/best_offset;
 }
-
+$brainfuck = $(".brainfuck");
 function updatePitch() {
-  console.log("update");
   var cycles = new Array;
   analyser.getByteTimeDomainData( buf );
 
   // possible other approach to confidence: sort the array, take the median; go through the array and compute the average deviation
   autoCorrelate( buf, audioContext.sampleRate );
   var fill = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-  console.log(fill)
+
   canvasContext.fillStyle = fill;
   canvasContext.fill();
   canvasContext.rect(0,0,WIDTH,HEIGHT);
-  console.log(confidence, currentPitch)
+
   if (confidence <10) {
     noteElem.innerText = "-";
   } else {
     var note =  noteFromPitch( currentPitch );
     noteElem.innerHTML = noteStrings[note%12];
+    var string_note = brainfuckify(noteStrings[note%12]);
+    brainfuck.push(string_note);
+    console.log(brainfuck.join(""));
+    // $brainfuck.append(string_note);WHY WHY WHY DO U BOT WIRJQWEOGNAKDJGSBAKSGB
   }
 }
+
+BRAIN_FUCK_MAP = {"A": ">", "A#": ">","B": "<","C": "[", "C#": "[", "D": "]", "D#": "]", "E": "+", "F": "-", "F#": ",", "G": ".", "G#": "."};
+function brainfuckify(note){
+  return BRAIN_FUCK_MAP[note];
+}
+$(function() {
+  getLiveInput();
+  noteElem = document.getElementById( "note" );
+  canvasContext = document.getElementById( "output" ).getContext("2d");
+});
