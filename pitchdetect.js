@@ -3,7 +3,8 @@ The MIT License (MIT)
 
 Copyright (c) 2014 Chris Wilson
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted,
+ free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -153,9 +154,20 @@ function updatePitch() {
   }
 }
 
-BRAIN_FUCK_MAP = {"A": ">", "A#": ">","B": "<","C": "[", "C#": "[", "D": "]", "D#": "]", "E": "+", "F": "-", "F#": ",", "G": ".", "G#": "."};
+//CLOSE BRACKETS YO!
+var lisp = false;
+//if lisp, append a ], else [
+BRAIN_FUCK_MAP = {
+  "A": ">",
+  "B": "<",
+  "C": "[",
+  "D": ",",
+  "E": "+",
+  "F": "-",
+  "G": ".",
+  };
 function brainfuckify(note){
-  return BRAIN_FUCK_MAP[note];
+  return BRAIN_FUCK_MAP[note[0]];
 }
 $(function() {
   getLiveInput();
