@@ -182,5 +182,4 @@ function brainfuckify(note){
 $(function() {
   getLiveInput();
   noteElem = document.getElementById( "note" );
-  canvasContext = document.getElementById( "output" ).getContext("2d");
 });
