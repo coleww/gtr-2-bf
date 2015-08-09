@@ -153,6 +153,8 @@ function updatePitch() {
     noteElem.innerHTML = noteStrings[note%12];
     var string_note = brainfuckify(noteStrings[note%12]);
     brainfuck.push(string_note);
+    $("#input").text(brainfuck.join(""))
+    //$("#code").text(brainfuck.join(""))
     console.log(brainfuck.join(""));
     // $brainfuck.append(string_note);WHY WHY WHY DO U BOT WIRJQWEOGNAKDJGSBAKSGB
   }
