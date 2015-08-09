@@ -184,6 +184,7 @@ $(function() {
   noteElem = document.getElementById( "note" );
   
   $(".runit").click(function(){
+    $("#input").val(brainfuck.join(""))
     var beef = new Brainfuck(brainfuck.join(""))
     console.log(beef.run())
   })
