@@ -182,4 +182,9 @@ function brainfuckify(note){
 $(function() {
   getLiveInput();
   noteElem = document.getElementById( "note" );
+  
+  $(".runit").click(function(){
+    var beef = new Brainfuck(brainfuck.join(""))
+    console.log(beef.run())
+  })
 });
