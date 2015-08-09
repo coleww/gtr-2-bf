@@ -15,6 +15,38 @@
 
 </head>
   <body>
+    <table xmlns="http://www.w3.org/1999/xhtml" class="noborder">
+		<tbody>
+			<tr>
+				<td><label for="code">Code:</label></td>
+				<td><textarea id="code" cols="50" rows="6" style="width:40em; height:8em"></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="input">Input:</label></td>
+				<td><textarea id="input" cols="50" rows="4" style="width:40em; height:4em"></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="output">Output:</label></td>
+				<td><textarea id="output" cols="50" rows="4" readonly="readonly" style="width:40em; height:4em"></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="memory">Memory:</label></td>
+				<td><textarea id="memory" cols="30" rows="10" readonly="readonly" style="width:20em; height:15em"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" class="runit"  >DO IT</input> 
+				</td>
+			</tr>
+			<tr>
+				<td><label for="steps">Steps:</label></td>
+				<td>
+					<input type="text" id="steps" readonly="readonly" style="width:7.5em" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
     <script src="jquery.js"></script>
     <script src="pitchdetect.js"></script>
     <div class="note"><span id="note">--</span></div>
